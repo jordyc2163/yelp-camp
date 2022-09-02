@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %> 
+<h1>Register</h1>
+<form action="/register" method="post" class="validated-form" novalidate>
+    <div class="mb-3">
+        <label class="form-label" for="location">Username</label>
+        <input class="form-control" type="text" id="username" name="username" required>
+        <div class="valid-feedback"> Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="location">Email</label>
+        <input class="form-control" type="email" id="email" name="email" required>
+        <div class="valid-feedback"> Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="location">Password</label>
+        <input class="form-control" type="password" id="password" name="password" required>
+        <div class="valid-feedback"> Looks good!</div>
+    </div>
+    <button class="btn btn-success">Submit</button>
+</form>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
