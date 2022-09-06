@@ -27,7 +27,7 @@
                     </div>
                     <% } %>
                         <div class="card-footer text-muted">
-                            Submitted 2 days ago by <%= campground.author.username %>
+                            Submitted <%= date.date %> by <%= campground.author.username %>
                         </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                                             method="post">
                                             <button class="btn btn-sm btn-danger">Delete</button>
                                         </form>
-                                    <% } %>
+                                        <% } %>
                                 </div>
                             </div>
                             <% } %>

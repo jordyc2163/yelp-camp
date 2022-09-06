@@ -45,7 +45,7 @@ module.exports.isCampground = async (req, res, next) => {
     const { id } = req.params
     try {
         const campground = await Campground.findById(id)
-        if(campground) {
+        if (campground) {
             next()
         }
         else {
