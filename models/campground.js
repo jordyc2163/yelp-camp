@@ -13,6 +13,17 @@ dateTimeToParts = (date) => {
     return { day, month, year, hours, minutes, seconds };
 }
 
+const ImageSchema = new Schema({
+    url: String,
+    filename: String
+})
+
+ImageSchema.virtual('thumbnail').get(function() {
+    return this.url.replace('/upload', '/upload/w_200');
+})
+
+const opts = { toJSON: { virtuals: true } };
+
 const CampgroundSchema = new Schema({
     title: {
         type: String
@@ -20,8 +31,17 @@ const CampgroundSchema = new Schema({
     price: {
         type: Number
     },
-    image: {
-        type: String
+    images: [ImageSchema],
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
     },
     description: {
         type: String
@@ -43,6 +63,13 @@ const CampgroundSchema = new Schema({
         type: Date,
         default: Date.now
     }
+}, opts)
+
+CampgroundSchema.virtual('properties.popUpMarkup').get(function() {
+    return `
+    <a href="/campgrounds/${this.id}">${this.title}</a>
+    <p>${this.description.substring(0,30)}...</p>
+    `;
 })
 
 CampgroundSchema.virtual('createdOn').get(function(){

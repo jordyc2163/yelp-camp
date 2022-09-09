@@ -7,20 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YelpCamp</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+  <link rel="stylesheet" href="/css/app.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 
 <body class="d-flex flex-column vh-100">
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
 
     <main class="container mt-5">
       <%- include('../partials/flash') %>
         <%- body %>
     </main>
-    
+
     <%- include('../partials/footer') %>
 
-    <!-- multiple bootstrap js scripts conflict with its utility (deleted them and npm i bootstrap instead) -->
-    <script src="/js/validateForms.js"></script>
+      <!-- multiple bootstrap js scripts conflict with its utility (deleted them and npm i bootstrap instead) -->
+      <script src="/js/validateForms.js"></script>
 
 
 </body>
